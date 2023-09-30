@@ -64,7 +64,8 @@
                     console.log(entries[4][1]);
                     let a = entries[4][1]
                     console.log(a[0].province);
-                    p.innerHTML = a[0].province;
+                    p.innerHTML = a[0].reporttime;
+                    console.log(a[0].reporttime);
 
 
                 }
@@ -85,3 +86,49 @@
 </body>
 
 </html>
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head><html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天气预报</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #1c92d2, #f2fcfe);
+            color: white;
+        }
+        .weather-report {
+            margin: 0 auto;
+            text-align: center;
+            padding: 20px;
+            border-radius: 20px;
+            background: rgba(0,0,0,0.5);
+            width: 300px;
+            margin-top: 100px;
+        }
+        #temperature {
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="weather-report">
+        <h1 id="location">台北市</h1>
+        <h2 id="date"></h2>
+        <h3 id="temperature"></h3>
+        <p id="description"></p>
+    </div>
+
+    <script>
+        // 这里是获取天气数据的JavaScript代码，你需要使用一个天气API来获取实时数据
+        document.getElementById('date').innerText = "日期：2023年9月30日";
+        document.getElementById('temperature').innerText = "28°C";
+        document.getElementById('description').innerText = "天气描述：多云";
+    </script>
+</body>
+</html> -->

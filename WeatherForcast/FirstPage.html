@@ -11,7 +11,7 @@
     <title>天气预报</title>
 
     <style>
-        body {
+        /* body {
             font-family: Arial, sans-serif;
             background-color: #f0f8ff;
         }
@@ -31,21 +31,48 @@
         .weather-forecast p {
             line-height: 1.6;
             color: #666;
+        } */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #1c92d2, #f2fcfe);
+            color: white;
         }
+        .weather-report {
+            margin: 0 auto;
+            text-align: center;
+            padding: 20px;
+            border-radius: 20px;
+            background: rgba(0,0,0,0.5);
+            width: 300px;
+            margin-top: 100px;
+        }
+        #p_temperature {
+            font-size: 50px;
+        }
+
 
     </style>
 
 </head>
 
 <body>
+    <div class="weather-report">
+        <h1 id="p_city"></h1>
+        <h2 id="p_reporttime"></p>
+        <h3 id="p_temperature"></h3>
+        <p id="p_weather"></p>
+        <!-- <h2 id="p_humidity"></h2> -->
+        
+    </div>
 
-    <div class="weather-forecast">
+
+    <!-- <div class="weather-forecast">
         <h2>天气预报</h2>
         <p id="p_city"><strong>城市：</strong><span id="city"></span></p>
         <p id="p_temperature"><strong>温度：</strong><span id="temperature"></span></p>
         <p id="p_humidity"><strong>湿度：</strong><span id="humidity"></span></p>
         <p id="p_wind-speed"><strong>风速：</strong><span id="wind-speed"></span></p>
-    </div>
+    </div> -->
 
     <script>
         var httpRequest = new XMLHttpRequest(); // 创建XMLHttpRequest对象
@@ -76,17 +103,22 @@
 
 
                 // cityget
-                var pcity = document.getElementById("city");   
+                var pcity = document.getElementById("p_city");   
+
+
+                // report-time
+                var p= document.getElementById("p_reporttime");
+
 
                 // temperature
-                var ptemperature = document.getElementById("temperature");   
+                var ptemperature = document.getElementById("p_temperature");   
 
 
-                // humidity
-                var phumidity = document.getElementById("humidity");   
+                /* // humidity
+                var phumidity = document.getElementById("p_humidity"); */  
 
                 // wind-speed
-                var pwindspeed = document.getElementById("wind-speed");   
+                var pweather = document.getElementById("p_weather");   
 
 
 
@@ -97,19 +129,30 @@
 
                 // 城市名
                 console.log(a[0].province);
-                pcity.innerText = a[0].province;
+                pcity.innerText = a[0].province + "市";
+
+
+                // //时间
+                // console.log( a[0].reporttime);
+                p.innerHTML = a[0].reporttime;
+                console.log(a[0].reporttime);
+
 
                 //温度
-                console.log(a[0].province);
-                ptemperature.innerText = a[0].temperature_float;
+                console.log(a[0].temperature_float);
+                ptemperature.innerText = a[0].temperature_float + "°C";
 
-                //湿度
-                console.log(a[0].province);
-                phumidity.innerText = a[0].humidity;
+                /* //湿度
+                console.log(a[0].humidity);
+                phumidity.innerText = a[0].humidity;*/
 
-                //风速
-                console.log(a[0].province);
-                pwindspeed.innerText = a[0].windpower;
+
+                //天气
+                console.log(a[0].weather);
+                pweather.innerText = "天气：" + a[0].weather;
+
+
+
             }
         }
 
