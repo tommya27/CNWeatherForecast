@@ -27,58 +27,69 @@
 
     <script>
         function login() {
-            var httpRequest = new XMLHttpRequest(); // 创建XMLHttpRequest对象
+            // var httpRequest = new XMLHttpRequest(); // 创建XMLHttpRequest对象
 
 
        
 
-            // 把接口中的内容装备到请求对象身上
-            // httpRequest.open('请求方式','url地址');
-            httpRequest.open('GET', 'https://restapi.amap.com/v3/weather/weatherInfo?key=95f0b1487a3db8459e5bbf7f269996e4&city=110101',true); // 打开连接
-            // httpRequest.open('GET', 'https://apis.netstart.cn/zhihudaily/stories/latest',true); // 打开连接
+            // // 把接口中的内容装备到请求对象身上
+            // // httpRequest.open('请求方式','url地址');
+            // httpRequest.open('GET', 'https://restapi.amap.com/v3/weather/weatherInfo?key=95f0b1487a3db8459e5bbf7f269996e4&city=110101',true); // 打开连接
+            // // httpRequest.open('GET', 'https://apis.netstart.cn/zhihudaily/stories/latest',true); // 打开连接
 
-            // 发送请求
-            httpRequest.send(); 
+            // // 发送请求
+            // httpRequest.send(); 
 
-            // 请求对象要到东西后回来
-            httpRequest.onreadystatechange = function () { 
+            // // 请求对象要到东西后回来
+            // httpRequest.onreadystatechange = function () { 
 
 
             
-            // 200代表数据成功带回
-            // 4代表数据请求完成
-            if (httpRequest.readyState == 4 && httpRequest.status == 200) {
-                    console.log(httpRequest.responseText);
+            // // 200代表数据成功带回
+            // // 4代表数据请求完成
+            // if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+            //         console.log(httpRequest.responseText);
 
-                    var xml = JSON.parse(httpRequest.responseText);
-                    console.log(xml);
-
-
-                    var p = document.getElementById("testp");
-                    // for(i = 0;i < lives.length;i++) {
-                    //     p.innerHTML = xml.lives[i];
-                    // }        
+            //         var xml = JSON.parse(httpRequest.responseText);
+            //         console.log(xml);
 
 
-                    let entries = Object.entries(xml);
-                    console.log(entries[4][1]);
-                    let a = entries[4][1]
-                    console.log(a[0].province);
-                    p.innerHTML = a[0].reporttime;
-                    console.log(a[0].reporttime);
+            //         var p = document.getElementById("testp");
+            //         // for(i = 0;i < lives.length;i++) {
+            //         //     p.innerHTML = xml.lives[i];
+            //         // }        
 
 
+            //         let entries = Object.entries(xml);
+            //         console.log(entries[4][1]);
+            //         let a = entries[4][1]
+            //         console.log(a[0].province);
+            //         p.innerHTML = a[0].reporttime;
+            //         console.log(a[0].reporttime);
+
+
+            //     }
+                var httpIPRequest = new XMLHttpRequest(); // 创建XMLHttpRequest对象
+
+                    
+                // 把接口中的内容装备到请求对象身上
+                // httpRequest.open('请求方式','url地址');
+                httpIPRequest.open('GET', 'https://restapi.amap.com/v3/ip?key=95f0b1487a3db8459e5bbf7f269996e4',true); // 打开连接
+                // httpRequest.open('GET', 'https://restapi.amap.com/v3/ip?key=95f0b1487a3db8459e5bbf7f269996e4',true); // 打开连接
+
+                // 发送请求
+                httpIPRequest.send(); 
+
+                // 请求对象要到东西后回来
+                httpIPRequest.onreadystatechange = function () { 
+                    if (httpIPRequest.readyState == 4 && httpIPRequest.status == 200) {
+                        console.log(httpIPRequest.responseText);
+                        var ip = JSON.parse(httpIPRequest.responseText);
+                        console.log(ip);
+
+                    }
                 }
-
-
-
-
-
             };
-        }
-
-
-
     </script>
 
 
