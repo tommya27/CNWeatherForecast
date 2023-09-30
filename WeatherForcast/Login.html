@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录页面</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 3px;
+            border: 1px solid #ddd;
+        }
+
+        #button {
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 3px;
+            border: none;
+        }
+    </style>
+
+
+
+</head>
+
+
+<body>
+
+    <form>
+
+        <input id="U_name" type="username" placeholder="用户名" required>
+
+        <input id="U_pwd" type="password" placeholder="密码" required>
+
+        <input id="button" onclick="login()" type="button" value="登录">
+
+    </form>
+
+
+    <script>
+        function login() {
+            // 获取input标签里的值
+            var Uname = document.getElementById("U_name").value
+            var Upwd = document.getElementById("U_pwd").value
+
+            // 正则表达式
+            var usernameRegex = /^[A-Za-z0-9]{5,12}$/;
+            var passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,15}$/;
+
+            //判断输入格式是否有错
+            if (!usernameRegex.test(Uname)) {
+                alert('用户名无效！用户名只能包含字母和数字，长度在5-12之间。');
+                return ;
+            }
+
+            if (!passwordRegex.test(Upwd)) {
+                alert('密码无效！密码必须包含至少一个大写字母、一个小写字母和一个数字，长度在8-15之间。');
+                return;
+            }
+
+            else {
+                alert('登录成功！');
+                location.href = "FirstPage.html";
+            }
+            
+
+            // alert(Uname)
+            // alert(Upwd)
+            // return
+            // if (Uname == "" || Upwd == "") {
+            //     return;
+            // }
+            // if (Uname !=  || Upwd != "12347") {
+            //     alert("账号或密码输入错误！！！");
+            //     return;
+            // }
+            // else {
+            //     location.href = "FirstPage.html";
+            // }
+
+        }
+
+
+    </script>
+
+
+
+    <!-- <script>
+        function login() {
+            var httpRequest = new XMLHttpRequest(); // 创建XMLHttpRequest对象
+
+            // 把接口中的内容装备到请求对象身上
+            // httpRequest.open('请求方式','url地址');
+
+
+            httpRequest.open('GET', 'https://restapi.amap.com/v3/weather/weatherInfo?key=fbdcc4d79550f486e8c5ac573e146eb3&city=110101'); // 打开连接
+
+            // 发送请求
+            httpRequest.send(); 
+
+            // 请求对象要到东西后回来
+            httpRequest.onreadystatechange = function () { 
+
+            // 200代表数据成功带回
+            // 4代表数据请求完成
+            if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+                console.log(httpRequest.responseText);
+
+                // var json = httpRequest.responseText; 
+                var json = JSON.parse(httpRequest.responseText);
+                console.log(json);
+                }
+            };
+            
+
+
+        }
+    </script> -->
+
+
+
+</body>
+
+</html>
